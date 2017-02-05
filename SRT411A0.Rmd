@@ -1,0 +1,154 @@
+---
+title: "Assignment 0"
+author: "Justin Sallese"
+date: "1/29/2017"
+output:
+  pdf_document: default
+---
+GitHub Username:jsallese
+
+[GitHub URL](https://github.com/jsallese/SRT411-Assignment-0)
+
+[A very Short introduction to R](https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+The overall purpose of this assignment is to increase ones knowladge of the r programming language by doing the exercises found in the document "A (very) short introduction to R" by Paul Torfs & Claudia Brauer. Below can be found the code used to complete the to do exercises found within the introduction to R
+3.1
+```{r}
+((2014-2014)/(2014-1995))*100
+```
+
+3.2
+```{r}
+a <- 2014-2014
+b <- 2014-1995
+c <- 100
+d <- (a/b)*c
+d
+```
+
+3.4
+```{r}
+z <- c(4,5,8,11)
+sum(z)
+```
+3.5
+```{r}
+x = rnorm(100)
+plot(x)
+```
+
+4
+```{r}
+help(sqrt)
+```
+
+5
+```{r}
+source("firstscript.R")
+```
+6.2
+```{r}
+P <- seq(from=31, to=60, by=1)
+Q <- matrix(P, ncol=5, nrow=6)
+Q
+```
+6.3 
+```{r}
+x1 <- rnorm(100)
+x2 <- rnorm(100)
+x3 <- rnorm(100)
+t <- data.frame(a= x1, b= x1+x2, c= x1+x2+x3)
+plot(t)
+```
+
+The results of the script run shows the plotting of 3 variables denoting 100 random numbers each. For each variable in the data frame are added to each other as the variables continue. The plot shows the result of the random number variable being added together.
+
+7
+```{r}
+plot(t$a, type="l", ylim=range(t),
+ lwd=3, col=rgb(1,0,0,0.3))
+lines(t$b, type="s", lwd=2,
+ col=rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch=20, cex=4,
+ col=rgb(0,0,1,0.3))
+```
+
+The meainging of the rgb variable denotes the color of certain aspects of the plot that is designated. The lwd variable denotes the width of the line within the plot. The variable pch denotes the type of symbol to use within the plot. The variable cex denotes the size of the symbols used within the plot.
+
+8
+```{r}
+d = read.table(file="tst1.txt", header = TRUE)
+d$g <- d$g * 5
+write.table(d, file = "tst2.txt", row.names = FALSE)
+```
+9
+```{r}
+v <- rnorm(100)
+v2 <- sqrt(v)
+mean(v2)
+v2
+```
+The results display all the result whether or not they can be calculated. If they can be calculated then they are displayed, if the numbers cannot be calculated then the results are displayed as NaN.
+
+10.2
+```{r}
+Date <- strptime( c("20170131","20141206","20171121"),format="%Y%m%d")
+Presents <- c(0,0,6)
+plot(Date,Presents)
+```
+
+11.2
+```{r}
+num <- seq(from = 1, to = 100, by=1)
+f=c()
+for(l in 1:100)
+{
+if(num[l]<5 | num[l]>90)
+  {f[l]=num[l]*10}
+else
+  {f[l]=num[l]*0.1}
+}
+f
+```
+11.3
+```{r}
+fun1 = function(arg1)
+{len = length(arg1)
+  for(q in 1:len)
+{if (arg1[q] < 5 | arg1[q] > 90)
+{arg1[q] = arg1[q] * 10}
+else
+{arg1[q] = arg1[q] * 0.1}}
+  return (arg1)
+}
+m=4:32
+fun1(arg1=m)
+```
+11.3 Footer
+```{r}
+fun1 = function(arg1)
+{
+{if (arg1 < 5 | arg1 > 90)
+{arg1 = arg1 * 10}
+ifelse
+{arg1 = arg1 * 0.1}}
+  return (arg1)
+}
+m=1:100
+fun1(arg1=m)
+```
+Work Cited
+
+Broman, Karl. "Knitr with R Markdown." Sitewide ATOM. N.p., n.d. Web. 01 Feb. 2017.
+
+Broman, Karl. "Markdown." Sitewide ATOM. N.p., n.d. Web. 01 Feb. 2017.
+
+Falster, Rich FitzJohn & Daniel. "Nice R Code." Writing Reproducible Reports in R with Markdown, Knitr and Pandoc - Nice R Code. N.p., n.d. Web. 01 Feb. 2017.
+
+R Markdown Cheat Sheet. Digital image. RStudio. N.p., Aug. 2014. Web. 1 Feb. 2017.
+
+"R Markdown." R Markdown. N.p., n.d. Web. 01 Feb. 2017.
+
+Torfs, Paul, and Claudia Brauer. "A (very) Short Introduction to R." A (very) Short Introduction to R (n.d.): 1-12. Cran.r-preogect.org. Rstudio, 3 Mar. 2014. Web. 1 Feb. 2017.
